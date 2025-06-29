@@ -1,8 +1,8 @@
 {
     "rewrites": [
         {
-            "source": "/weather",
-            "destination": "https://api.openweathermap.org/data/2.5/weather?appid=@api_key"
+            "source": "/api/weather",
+            "destination": "https://api.openweathermap.org/data/2.5/weather"
         }
     ]
 }

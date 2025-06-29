@@ -41,10 +41,7 @@
     </div>
 
     <script>
-      const apikey = "";
-      const apiUrl =
-        "/weather?units=metric&q=";
-
+      
       const searchBox = document.querySelector(".search input");
       const searchBtn = document.querySelector(".search button");
       const weatherIcon = document.querySelector(".weather-icon");
@@ -60,7 +57,9 @@
         humyElement.classList.add("loading-line-animation");
         windElement.classList.add("loading-line-animation");
 
-        const response = await fetch(apiUrl + city + `&appid=${apikey}`);
+        const vercelApiEndpoint = `/api/weather?q=&{city}&units=metric`;
+
+        const response = await fetch(vercelApiEndpoint);
 
         if (response.status == 404) {
           document.querySelector(".error").style.display = "block";
