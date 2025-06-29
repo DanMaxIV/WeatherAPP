@@ -57,7 +57,7 @@
         humyElement.classList.add("loading-line-animation");
         windElement.classList.add("loading-line-animation");
 
-        const vercelApiEndpoint = `/api/weather?q=&{city}&units=metric`;
+        const vercelApiEndpoint = `/api/weather?q=4{city}&units=metric`;
 
         const response = await fetch(vercelApiEndpoint);
 
