@@ -2,7 +2,7 @@
     "rewrites": [
         {
             "source": "/api/weather",
-            "destination": "https://api.openweathermap.org/data/2.5/weather"
+            "destination": "https://api.openweathermap.org/data/2.5/weather?q=$q&units=$units&appid=$APPID"
         }
     ]
 }
