@@ -12,7 +12,7 @@ async function checkWeather(city) {
   tempElement.classList.add("loading-line-animation");
   humyElement.classList.add("loading-line-animation");
   windElement.classList.add("loading-line-animation");
-  
+
   const response = await fetch(`/api/weather?q=${city}`);
 
   if (response.status == 404) {
@@ -55,32 +55,5 @@ searchBtn.addEventListener("click", () => {
 searchBox.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     checkWeather(searchBox.value);
-  }
-});
-
-window.addEventListener("load", () => {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-
-        try {
-          const res = await fetch(`/api/geo?lat=${lat}&lon=${lon}`);
-          const data = await res.json();
-
-          if (res.ok && data.city) {
-            checkWeather(data.city);
-          } else {
-            console.warn("City not found:", data.error);
-          }
-        } catch (err) {
-          console.error("Failed to fetch city from server:", err);
-        }
-      },
-      (error) => {
-        console.warn("User denied geolocation or an error occurred", error);
-      }
-    );
   }
 });
