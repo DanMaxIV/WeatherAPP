@@ -213,6 +213,9 @@ body {
 }
 
 @media (max-width: 600px) {
+  .card{
+    width: 95%;
+  }
   .details {
     padding-left: 0px;
     padding-right: 0px;
